@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "lockfileVersion": 1,
+  "packages": {
+    "@prpm/creating-skills-skill": {
+      "version": "1.0.3",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40prpm%2Fcreating-skills-skill/1.0.3.tar.gz",
+      "integrity": "sha256-ff3044675a4b62b3dff77ae2cf796603a21ded7998d41f0bca3db0f97b3bfa01",
+      "format": "claude",
+      "subtype": "skill",
+      "installedPath": ".claude/skills/creating-skills-skill/SKILL.md"
+    },
+    "@prpm/self-improving": {
+      "version": "1.0.0",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40prpm%2Fself-improving/1.0.0.tar.gz",
+      "integrity": "sha256-55ed1cb14c2740122193aef466f811fe6252667e817c63d30631fe1b0ccbb26f",
+      "format": "claude",
+      "subtype": "skill",
+      "installedPath": ".claude/skills/self-improving/SKILL.md"
+    },
+    "@prpm/prpm-json-best-practices-skill": {
+      "version": "1.0.8",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40prpm%2Fprpm-json-best-practices-skill/1.0.8.tar.gz",
+      "integrity": "sha256-80d9555ed69ec12f2e1d0a1e5b4fe343404d695de42b20bbe18f2a976a3f6e3f",
+      "format": "claude",
+      "subtype": "skill",
+      "installedPath": ".claude/skills/prpm-json-best-practices-skill"
+    }
+  },
+  "generated": "2025-11-01T22:20:18.697Z"
+}

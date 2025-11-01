@@ -1,0 +1,46 @@
+{
+  "name": "prpm-collections-builder",
+  "version": "1.0.0",
+  "description": "Official PRPM collections for popular development workflows",
+  "author": "prpm",
+  "license": "MIT",
+  "repository": "https://github.com/prpm/collections-builder",
+  "organization": "prpm",
+  "collections": [
+    {
+      "id": "nextjs-pro",
+      "name": "Next.js Professional Setup",
+      "description": "Production-ready Next.js development environment with TypeScript, React best practices, and modern tooling. Perfect for building scalable web applications with confidence.",
+      "version": "2.0.0",
+      "category": "development",
+      "tags": ["nextjs", "react", "typescript", "frontend", "production"],
+      "icon": "⚡",
+      "packages": [
+        {
+          "packageId": "@sanjeed5/react",
+          "version": "latest",
+          "required": true,
+          "reason": "Comprehensive React best practices for maintainable applications"
+        },
+        {
+          "packageId": "@sanjeed5/next-js",
+          "version": "latest",
+          "required": true,
+          "reason": "Next.js development guidance covering organization, performance, and security"
+        },
+        {
+          "packageId": "@prpm/typescript-type-safety",
+          "version": "latest",
+          "required": true,
+          "reason": "Strict TypeScript type safety and proper type guards"
+        },
+        {
+          "packageId": "@jhonma82/nextjs-react-tailwind",
+          "version": "latest",
+          "required": false,
+          "reason": "Optional Tailwind CSS integration patterns for Next.js"
+        }
+      ]
+    }
+  ]
+}

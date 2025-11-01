@@ -39,7 +39,7 @@ Use this skill when:
 ```
 
 **Naming Convention**: `@scope/id`
-- Official: `@collection/nextjs-pro`
+- Official: `collection/nextjs-pro`
 - Community: `@username/my-workflow`
 
 ### 2. Classification
@@ -99,17 +99,17 @@ Collections automatically adapt to the user's editor environment:
 
 ```bash
 # Auto-detects environment
-prpm install @collection/nextjs-pro
+prpm install collection/nextjs-pro
 
 # Force specific format
-prpm install @collection/nextjs-pro --as claude
-prpm install @collection/nextjs-pro --as cursor
+prpm install collection/nextjs-pro --as claude
+prpm install collection/nextjs-pro --as cursor
 
 # Skip optional packages
-prpm install @collection/nextjs-pro --skip-optional
+prpm install collection/nextjs-pro --skip-optional
 
 # Interactive selection
-prpm install @collection/nextjs-pro --customize
+prpm install collection/nextjs-pro --customize
 ```
 
 ## IDE-Specific Package Variants
@@ -167,7 +167,7 @@ Collections can extend other collections:
 ```typescript
 {
   id: 'enterprise-nextjs',
-  extends: '@collection/nextjs-pro',    // Base collection
+  extends: 'collection/nextjs-pro',    // Base collection
   additionalPackages: [
     { packageId: 'auth-patterns', version: 'latest' },
     { packageId: 'monitoring-setup', version: '1.0.0' },
@@ -206,7 +206,7 @@ Tracks installation events with user, version, format, and timestamp
 |--------|---------|------------|
 | Definition | Single atomic unit (rule, skill, agent) | Bundle of related packages |
 | Granularity | One prompt/rule/skill | 2-15+ packages |
-| Installation | `prpm install react-best-practices` | `prpm install @collection/nextjs-pro` |
+| Installation | `prpm install react-best-practices` | `prpm install collection/nextjs-pro` |
 | Scope | Solves one specific problem | Solves a complete workflow |
 | Analogy | npm module | Project boilerplate |
 
@@ -242,31 +242,116 @@ For PRPM team-curated collections:
 - [ ] Beta testing period completed
 - [ ] Community feedback incorporated
 
+## Defining Collections in prpm.json
+
+Collections are defined in the `collections` array within `prpm.json`. See examples in the `prpm-json-best-practices-skill`.
+
+### Collections-Only Repository
+
+```json
+{
+  "name": "@prpm/collections",
+  "version": "1.0.0",
+  "description": "Official PRPM collections",
+  "author": "PRPM Team",
+  "license": "MIT",
+  "collections": [
+    {
+      "id": "nextjs-pro",
+      "name": "Next.js Professional Setup",
+      "description": "Production-ready Next.js environment",
+      "version": "1.0.0",
+      "category": "development",
+      "tags": ["nextjs", "react", "typescript"],
+      "icon": "⚡",
+      "packages": [
+        {
+          "packageId": "react-best-practices",
+          "version": "^2.0.0",
+          "required": true,
+          "reason": "Core React patterns"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Combined Packages + Collections
+
+You can define both packages and collections in the same repo. Collections can reference local packages or external ones:
+
+```json
+{
+  "name": "@username/my-repo",
+  "author": "Your Name",
+  "license": "MIT",
+  "packages": [
+    {
+      "name": "my-skill",
+      "version": "1.0.0",
+      "description": "A skill",
+      "format": "claude",
+      "subtype": "skill",
+      "files": [".claude/skills/my-skill.md"]
+    }
+  ],
+  "collections": [
+    {
+      "id": "my-collection",
+      "name": "My Collection",
+      "description": "Bundles my skill with external packages",
+      "version": "1.0.0",
+      "category": "development",
+      "tags": ["workflow"],
+      "packages": [
+        {
+          "packageId": "my-skill",
+          "version": "^1.0.0",
+          "required": true
+        },
+        {
+          "packageId": "@external/package",
+          "version": "^2.0.0",
+          "required": false
+        }
+      ]
+    }
+  ]
+}
+```
+
+**Key points:**
+- Collections reference packages by `packageId` (not file paths)
+- Can mix local packages (defined in same repo) with external ones
+- Each collection has its own `id`, `version`, and metadata
+- Use `required: true/false` to mark packages as optional
+
 ## Common Use Cases
 
 ### 1. Project Startups
 Quick setup for new projects:
-- `@collection/nextjs-pro` - Complete Next.js environment
-- `@collection/python-data` - Python data science stack
-- `@collection/django-api` - Django REST API setup
+- `collection/nextjs-pro` - Complete Next.js environment
+- `collection/python-data` - Python data science stack
+- `collection/django-api` - Django REST API setup
 
 ### 2. Workflow Optimization
 Complete development toolchains:
-- `@collection/testing-complete` - All testing tools
-- `@collection/devops-infrastructure` - Full DevOps setup
-- `@collection/code-review` - Review and quality tools
+- `collection/testing-complete` - All testing tools
+- `collection/devops-infrastructure` - Full DevOps setup
+- `collection/code-review` - Review and quality tools
 
 ### 3. Technology Stacks
 Full ecosystem setups:
-- `@collection/full-stack-react` - Frontend + backend + DB
-- `@collection/enterprise-java` - Spring Boot microservices
-- `@collection/mobile-flutter` - Flutter development stack
+- `collection/full-stack-react` - Frontend + backend + DB
+- `collection/enterprise-java` - Spring Boot microservices
+- `collection/mobile-flutter` - Flutter development stack
 
 ### 4. Team Onboarding
 New team members get standard setup:
-- `@collection/company-frontend` - Company frontend standards
-- `@collection/company-backend` - Company backend standards
-- `@collection/claude-skills` - All Claude-specific skills
+- `collection/company-frontend` - Company frontend standards
+- `collection/company-backend` - Company backend standards
+- `collection/claude-skills` - All Claude-specific skills
 
 ## CLI Commands Reference
 
@@ -281,10 +366,10 @@ prpm collections list --category development
 prpm collections list --official
 
 # Get collection details
-prpm collection info @collection/nextjs-pro
+prpm collection info collection/nextjs-pro
 
 # Install a collection
-prpm install @collection/nextjs-pro
+prpm install collection/nextjs-pro
 
 # Create a collection
 prpm collection create my-workflow
@@ -433,7 +518,7 @@ Collections track:
 When working with collections, remember:
 
 - [ ] Collections bundle 3-15+ related packages for complete workflows
-- [ ] Each collection has scope (@collection/ or @username/)
+- [ ] Each collection has scope (collection/ or @username/)
 - [ ] Packages can be required or optional
 - [ ] Format-specific variants enable IDE optimization
 - [ ] MCP servers enhance Claude Code collections
