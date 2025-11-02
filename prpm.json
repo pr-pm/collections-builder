@@ -11,7 +11,7 @@
       "id": "nextjs-pro",
       "name": "Next.js Professional Setup",
       "description": "Production-ready Next.js development environment with TypeScript, React best practices, and modern tooling. Perfect for building scalable web applications with confidence.",
-      "version": "2.0.0",
+      "version": "1.0.0",
       "category": "development",
       "tags": ["nextjs", "react", "typescript", "frontend", "production"],
       "icon": "⚡",
