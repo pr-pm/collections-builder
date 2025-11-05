@@ -41,6 +41,35 @@
           "reason": "Optional Tailwind CSS integration patterns for Next.js"
         }
       ]
+    },
+    {
+      "id": "claude-plugins-builder",
+      "name": "Claude Plugins Builder",
+      "description": "Complete toolkit for building Claude Code plugins including skills, slash commands, and subagents. Learn best practices, patterns, and techniques for creating effective Claude Code extensions.",
+      "version": "1.0.0",
+      "category": "meta",
+      "tags": ["collection", "meta", "plugin-development", "skill-creation", "slash-commands", "subagents", "claude-code"],
+      "icon": "🔧",
+      "packages": [
+        {
+          "packageId": "@prpm/creating-skills-skill",
+          "version": "latest",
+          "required": true,
+          "reason": "Essential guidance for creating discoverable, scannable, and effective Claude Code skills with proper CSO optimization"
+        },
+        {
+          "packageId": "@prpm/slash-command-builder-skill",
+          "version": "latest",
+          "required": true,
+          "reason": "Expert guidance on building custom slash commands with proper structure, arguments, and tool permissions"
+        },
+        {
+          "packageId": "@prpm/agent-builder-skill",
+          "version": "latest",
+          "required": true,
+          "reason": "Comprehensive patterns for creating specialized subagents with proper system prompts and delegation"
+        }
+      ]
     }
   ]
 }
